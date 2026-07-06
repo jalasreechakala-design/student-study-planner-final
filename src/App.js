@@ -205,21 +205,13 @@ return (
     )}
 
       {/* Main Content */}
-      <button
-  style={{
-    display: "block",
-    background: "red",
-    color: "white",
-    padding: "10px",
-    width: "100%"
-  }}
+     
+     <button
+  className="menu-btn"
   onClick={() => setMenuOpen(!menuOpen)}
 >
-  ☰ MENU TEST
+  ☰ Menu
 </button>
-<h1 style={{color:"red"}}>
-  VERSION 999
-</h1>
       <div className="main">
 
         {/* Dashboard */}
