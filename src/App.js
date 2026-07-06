@@ -173,19 +173,37 @@ return (
 </button>
 
         <ul>
-          <li onClick={() => setPage("dashboard")}>
-            🏠 Dashboard
-          </li>
+          <li
+  onClick={() => {
+    setPage("dashboard");
+    setMenuOpen(false);
+  }}
+>
+  🏠 Dashboard
+</li>
+          
+          <li
+  onClick={() => {
+    setPage("tasks");
+    setMenuOpen(false);
+  }}
+></li>
 
-          <li onClick={() => setPage("tasks")}>
-            ✅ Tasks
-          </li>
-
-          <li onClick={() => setPage("notes")}>
+          <li
+  onClick={() => {
+    setPage("notes");
+    setMenuOpen(false);
+  }}
+>
             📝 Notes
           </li>
 
-          <li onClick={() => setPage("analytics")}>
+          <li
+  onClick={() => {
+    setPage("analytics");
+    setMenuOpen(false);
+  }}
+>
             📊 Analytics
           </li>
           <li onClick={() => setPage("calendar")}>
@@ -194,6 +212,7 @@ return (
           
           <li
   onClick={() => {
+    setMenuOpen(false);
     setIsLoggedIn(false);
     setPage("login");
   }}
@@ -203,6 +222,12 @@ return (
         </ul>
       </div>
     )}
+    {menuOpen && (
+  <div
+    className="overlay"
+    onClick={() => setMenuOpen(false)}
+  ></div>
+)}
 
       {/* Main Content */}
      
@@ -216,40 +241,66 @@ return (
 
         {/* Dashboard */}
         {page === "dashboard" && (
-          <>
-            <h1>📚 Student Study Planner</h1>
-            <p>Manage your tasks and track your progress.</p>
+  <>
+    <div className="welcome-card">
+      <div>
+        <h1>👋 Welcome Back</h1>
+        <p>Let's make today productive.</p>
+      </div>
 
-            <div className="card-container">
-              <div className="card">
-                <h3>📋 Total Tasks</h3>
-                <h2>{tasks.length}</h2>
-              </div>
+      <div className="date-box">
+        {new Date().toLocaleDateString()}
+      </div>
+    </div>
 
-              <div className="card">
-                <h3>✅ Completed Tasks</h3>
-                <h2>
-                  {
-                    tasks.filter(
-                      (task) => task.completed === 1
-                    ).length
-                  }
-                </h2>
-              </div>
+    <h2>📚 Student Study Planner</h2>
+    <p>Manage your tasks and track your progress.</p>
 
-              <div className="card">
-                <h3>⏳ Pending Tasks</h3>
-                <h2>
-                  {
-                    tasks.filter(
-                      (task) => task.completed !== 1
-                    ).length
-                  }
-                </h2>
-              </div>
-            </div>
-          </>
-        )}
+    <div className="card-container">
+      <div className="card">
+        <h3>📋 Total Tasks</h3>
+        <h2>{tasks.length}</h2>
+      </div>
+
+      <div className="card">
+        <h3>✅ Completed Tasks</h3>
+        <h2>
+          {tasks.filter((task) => task.completed === 1).length}
+        </h2>
+      </div>
+
+      <div className="card">
+        <h3>⏳ Pending Tasks</h3>
+        <h2>
+          {tasks.filter((task) => task.completed !== 1).length}
+        </h2>
+      </div>
+    </div>
+
+    {/* ⭐ ADD THIS NEW SECTION */}
+    <div className="progress-section">
+      <h3>📈 Study Progress</h3>
+
+      <div className="progress-bar">
+        <div
+          className="progress-fill"
+          style={{
+            width: `${
+              tasks.length === 0
+                ? 0
+                : (tasks.filter(task => task.completed === 1).length / tasks.length) * 100
+            }%`
+          }}
+        ></div>
+      </div>
+
+      <p>
+        {tasks.filter(task => task.completed === 1).length}
+        {" "}of {tasks.length} tasks completed
+      </p>
+    </div>
+  </>
+)}
 
         {/* Tasks */}
         {page === "tasks" && (
