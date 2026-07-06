@@ -125,6 +125,7 @@ body {
   width: 250px;
   background: #111827;
   padding: 20px;
+  transition: 0.3s;
 }
 
 .sidebar h2 {
@@ -263,72 +264,72 @@ button {
 .welcome-card p {
   margin-top: 10px;
 }
-@media (max-width: 768px) {
+@media (max-width:768px){
 
-  .container {
+  .container{
     flex-direction: column;
   }
 
-  .menu-btn {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    background: #2563eb;
-    color: white;
+  .menu-btn{
+    display:block;
+    background:#2563eb;
+    color:white;
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    border:none;
+    cursor:pointer;
   }
 
-  .sidebar {
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: -260px;
-    height: 100vh;
-    background: #111827;
-    padding: 20px;
-    transition: 0.3s;
-    z-index: 1000;
+  .sidebar{
+    position:fixed;
+    top:0;
+    left:-260px;
+    width:250px;
+    height:100vh;
+    background:#111827;
+    z-index:1000;
+    transition:0.3s;
   }
 
-  .sidebar.show-sidebar {
-    left: 0;
+  .sidebar.show-sidebar{
+    left:0;
   }
 
-  .sidebar h2 {
-    font-size: 16px;
+  .main{
+    margin-left:0;
+    width:100%;
+    padding:15px;
+    box-sizing:border-box;
   }
 
-  .sidebar li {
-    font-size: 14px;
-    padding: 8px;
+  .card-container{
+    flex-direction:column;
   }
 
-  .main {
-    padding: 15px;
+  .card{
+    width:100%;
+    box-sizing:border-box;
   }
 
-  .card-container {
-    flex-direction: column;
-  }
-
-  .card {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .form-box {
-    width: 100%;
-    box-sizing: border-box;
+  .form-box{
+    width:100%;
+    box-sizing:border-box;
   }
 
   input,
   select,
   textarea,
-  button {
-    width: 100%;
-    box-sizing: border-box;
+  button{
+    width:100%;
+    box-sizing:border-box;
   }
 
-  .welcome-card h1 {
-    font-size: 28px;
+  .welcome-card h1{
+    font-size:28px;
+  }
+
+  .welcome-card p{
+    font-size:16px;
   }
 }
