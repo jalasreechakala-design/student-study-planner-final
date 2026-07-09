@@ -242,12 +242,24 @@ return (
 
       {/* Main Content */}
      
-     <button
-  className="menu-btn"
-  onClick={() => setMenuOpen(!menuOpen)}
->
-  ☰ Menu
-</button>
+    <div className="topbar">
+
+  <button
+    className="hamburger"
+    onClick={() => setMenuOpen(!menuOpen)}
+  >
+    ☰
+  </button>
+
+  <h2 className="app-title">
+    📚 Study Planner
+  </h2>
+
+  <div className="profile-icon">
+    👤
+  </div>
+
+</div>
       <div className="main">
 
         {/* Dashboard */}
