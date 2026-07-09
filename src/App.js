@@ -390,11 +390,14 @@ return (
               />
 
               <button
-                className="add-btn"
-                onClick={addTask}
-              >
-                Add Task
-              </button>
+  className="add-btn"
+  onClick={() => {
+    alert("Button Clicked");
+    addTask();
+  }}
+>
+  Add Task
+</button>
             </div>
 
             <br />
