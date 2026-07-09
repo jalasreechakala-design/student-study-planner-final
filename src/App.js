@@ -173,7 +173,7 @@ return (
 </button>
 
         <ul>
-          <li
+          <li className={page === "dashboard" ? "active" : ""}
   onClick={() => {
     setPage("dashboard");
     setMenuOpen(false);
@@ -182,14 +182,17 @@ return (
   🏠 Dashboard
 </li>
           
-          <li
+         <li
+  className={page === "tasks" ? "active" : ""}
   onClick={() => {
     setPage("tasks");
     setMenuOpen(false);
   }}
-></li>
-
+>
+  ✅ Tasks
+</li> 
           <li
+  className={page === "notes" ? "active" : ""}
   onClick={() => {
     setPage("notes");
     setMenuOpen(false);
@@ -199,6 +202,7 @@ return (
           </li>
 
           <li
+  className={page === "analytics" ? "active" : ""}
   onClick={() => {
     setPage("analytics");
     setMenuOpen(false);
@@ -206,11 +210,18 @@ return (
 >
             📊 Analytics
           </li>
-          <li onClick={() => setPage("calendar")}>
+          <li
+  className={page === "calendar" ? "active" : ""}
+  onClick={() => {
+    setPage("calendar");
+    setMenuOpen(false);
+  }}
+>
   📅 Calendar
 </li>
           
           <li
+  className={page === "login" ? "active" : ""}
   onClick={() => {
     setMenuOpen(false);
     setIsLoggedIn(false);
