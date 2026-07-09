@@ -77,7 +77,7 @@ if (
 
   const deleteTask = async (id) => {
     const response = await fetch(
-      `https://student-study-planner-qpdr.onrender.com/delete-task`,
+      `https://student-study-planner-qpdr.onrender.com/delete-task/${id}`,
       {
         method: "DELETE",
       }
@@ -90,7 +90,7 @@ if (
 
   const completeTask = async (id) => {
     const response = await fetch(
-      `https://student-study-planner-qpdr.onrender.com/complete-task`,
+      `https://student-study-planner-qpdr.onrender.com/complete-task/${id}`,
       {
         method: "PUT",
       }
@@ -102,7 +102,7 @@ if (
   };
   const updateTask = async (id) => {
   const response = await fetch(
-    `https://student-study-planner-qpdr.onrender.com/update-task`,
+    `https://student-study-planner-qpdr.onrender.com/update-task/${id}`,
     {
       method: "PUT",
       headers: {
