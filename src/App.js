@@ -49,7 +49,7 @@ if (
   return;
 }
     const response = await fetch(
-      `https://student-study-planner-qpdr.onrender.com/add-task/${user.id}`,
+      `https://student-study-planner-qpdr.onrender.com/add-task`,
       {
         method: "POST",
         headers: {
