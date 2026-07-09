@@ -31,6 +31,8 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
     background:linear-gradient(135deg,#4facfe,#00f2fe);
     padding:25px;
     border-radius:20px;
@@ -194,13 +196,17 @@ body {
   margin-bottom: 30px;
 }
 
-.card {
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-  padding: 25px;
+ .card {
   border-radius: 20px;
-  width: 220px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  transition: 0.3s;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card:hover {
@@ -323,7 +329,7 @@ button {
   .sidebar{
     position:fixed;
     top:0;
-    left:-260px;
+    left:-280px;
     width:250px;
     height:100vh;
     background:#111827;
@@ -336,11 +342,11 @@ button {
   }
 
   .main{
-    margin-left:0;
     width:100%;
-    padding:15px;
+    padding:20px;
+    padding-left:55px;
     box-sizing:border-box;
-  }
+}
 
   .card-container{
     flex-direction:column;
@@ -349,7 +355,9 @@ button {
   .card{
     width:100%;
     box-sizing:border-box;
-  }
+    min-height:120px;
+    padding:18px;
+}
 
   .form-box{
     width:100%;
@@ -389,4 +397,41 @@ button {
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
+.welcome-card{
+    flex-direction:column;
+    text-align:center;
+}
+
+.date-box{
+    width:100%;
+    margin-top:10px;
+}
+
+.welcome-card h1{
+    font-size:32px;
+}
+
+.welcome-card p{
+    font-size:18px;
+}
+.main h1{
+  font-size:36px;
+  line-height:1.2;
+}
+
+.main p{
+  font-size:18px;
+}
+.card h3{
+  font-size:24px;
+}
+
+.card h2{
+  font-size:38px;
+}
+.date-box{
+  font-size:26px;
+  font-weight:bold;
+}
+
 }
