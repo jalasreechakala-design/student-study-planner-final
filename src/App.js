@@ -255,9 +255,24 @@ return (
     📚 Study Planner
   </h2>
 
-  <div className="profile-icon">
-    👤
+  <div className="nav-right">
+  <span className="notification">🔔</span>
+
+  <div className="profile-section">
+  <div className="profile-avatar">
+    {user?.name?.charAt(0).toUpperCase()}
   </div>
+
+  <div className="profile-details">
+    <span className="profile-name">
+      {user?.name}
+    </span>
+    <small className="profile-role">
+      Student
+    </small>
+  </div>
+</div>
+</div>
 
 </div>
       <div className="main">
