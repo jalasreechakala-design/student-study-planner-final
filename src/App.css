@@ -1,3 +1,81 @@
+.sidebar-header{
+    padding:15px;
+}
+
+.logo-circle{
+    width:45px;
+    height:45px;
+    font-size:22px;
+}
+.sidebar-header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:20px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    margin-bottom:20px;
+}
+
+.logo-circle{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:26px;
+}
+.today-tasks{
+    margin-top:30px;
+    background:#1e293b;
+    padding:25px;
+    border-radius:20px;
+    color:white;
+}
+
+.today-tasks h3{
+    margin-bottom:20px;
+}
+
+.today-task-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:12px;
+    background:#334155;
+}
+
+.priority-badge{
+    background:#2563eb;
+    color:white;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+}
+.date-box{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    padding:15px 25px;
+    border-radius:15px;
+    text-align:center;
+    color:white;
+    min-width:220px;
+}
+
+.date-box h3{
+    margin:0;
+    font-size:18px;
+}
+
+.date-box p{
+    margin-top:8px;
+    font-size:14px;
+    color:#f1f5f9;
+}
 .quote{
     margin-top:15px;
     font-size:15px;
@@ -200,12 +278,22 @@
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
-    gap:20px;
-    background:linear-gradient(135deg,#4facfe,#00f2fe);
-    padding:25px;
-    border-radius:20px;
-    margin-bottom:25px;
-    box-shadow:0 10px 30px rgba(0,0,0,.3);
+    padding:30px;
+    margin-bottom:30px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    color:white;
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+.welcome-title{
+    font-size:36px;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+
+.welcome-card p{
+    font-size:18px;
+    opacity:0.95;
 }
 .menu-btn {
   display: none;
@@ -728,5 +816,39 @@ button {
 }.quote{
     font-size:14px;
 }
+.date-box{
+    width:100%;
+    margin-top:15px;
+}
+.welcome-card{
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
 
+.welcome-title{
+    font-size:28px;
+}
+
+.welcome-card p{
+    font-size:16px;
+}
+.today-task-card{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.priority-badge{
+    align-self:flex-end;
+}
+.sidebar-header{
+    padding:15px;
+}
+
+.logo-circle{
+    width:45px;
+    height:45px;
+    font-size:22px;
+}
 }

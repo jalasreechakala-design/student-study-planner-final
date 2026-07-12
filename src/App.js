@@ -128,6 +128,14 @@ if (
   const filteredTasks = tasks.filter((task) =>
     task.task_name.toLowerCase().includes(search.toLowerCase())
   );
+  const hour = new Date().getHours();
+
+const greeting =
+  hour < 12
+    ? "Good Morning"
+    : hour < 18
+    ? "Good Afternoon"
+    : "Good Evening";
 
   if (!isLoggedIn) {
 
@@ -161,7 +169,16 @@ return (
   className={`sidebar ${
     menuOpen ? "show-sidebar" : ""
   }`}
->
+><div className="sidebar-header">
+  <div className="logo-circle">
+    📚
+  </div>
+
+  <div>
+    <h2>Study Planner</h2>
+    <p>Student Productivity</p>
+  </div>
+</div>
         <h2>📚 Study Planner</h2>
         <button
   className="theme-btn"
@@ -221,10 +238,10 @@ return (
 >
   📅 Calendar
 </li>
-<li onClick={() => setPage("pomodoro")}>
+<li className={page === "Pomodoro" ? "active-menu" : ""} onClick={() => setPage("pomodoro")}>
   🍅 Pomodoro
 </li>
-<li onClick={() => setPage("goals")}>
+<li className={page === "Goals" ? "active-menu" : ""}onClick={() => setPage("goals")}>
   🎯 Goals
 </li>
           
@@ -290,19 +307,25 @@ return (
   <>
     <div className="welcome-card">
       <div>
-        <h1>👋 Welcome Back</h1>
+        <h1 className="welcome-title">👋 {greeting},{user?.name || "Student"}</h1>
         <p>Let's make today productive.</p>
         <p className="quote">
   "Success doesn't come from what you do occasionally, it comes from what you do consistently."
 </p>
       </div>
+<div className="date-box">
+  <h3>
+    {new Date().toLocaleDateString("en-US", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    })}
+  </h3>
 
-      <div className="date-box">
-        <div>
-  <h3>{new Date().toLocaleDateString()}</h3>
-  <small>{new Date().toLocaleTimeString()}</small>
+  <p>📚 Have a productive day!</p>
 </div>
-      </div>
+      
     </div>
 
     <h2>📚 Student Study Planner</h2>
@@ -343,7 +366,29 @@ return (
                 : (tasks.filter(task => task.completed === 1).length / tasks.length) * 100
             }%`
           }}
-        ></div>
+        >
+          <div className="today-tasks">
+
+  <h3>📅 Today's Pending Tasks</h3>
+
+  {tasks
+    .filter(task => task.completed !== 1)
+    .slice(0, 3)
+    .map(task => (
+      <div className="today-task-card" key={task.id}>
+        <span>📖 {task.task_name}</span>
+        <span className="priority-badge">
+          {task.priority}
+        </span>
+      </div>
+    ))}
+
+  {tasks.filter(task => task.completed !== 1).length === 0 && (
+    <p>🎉 No pending tasks. Great job!</p>
+  )}
+
+</div>
+        </div>
         <div className="today-tasks">
   <h3>📅 Today's Tasks</h3>
 
