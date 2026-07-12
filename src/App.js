@@ -5,6 +5,8 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Notes from "./pages/Notes";
 import CalendarPage from "./pages/Calendar";
+import Pomodoro from "./pages/Pomodoro";
+import Goals from "./pages/Goals";
 function App() {
   const [tasks, setTasks] = useState([]);
   const [taskName, setTaskName] = useState("");
@@ -219,6 +221,12 @@ return (
 >
   📅 Calendar
 </li>
+<li onClick={() => setPage("pomodoro")}>
+  🍅 Pomodoro
+</li>
+<li onClick={() => setPage("goals")}>
+  🎯 Goals
+</li>
           
           <li
   className={page === "login" ? "active" : ""}
@@ -284,10 +292,16 @@ return (
       <div>
         <h1>👋 Welcome Back</h1>
         <p>Let's make today productive.</p>
+        <p className="quote">
+  "Success doesn't come from what you do occasionally, it comes from what you do consistently."
+</p>
       </div>
 
       <div className="date-box">
-        {new Date().toLocaleDateString()}
+        <div>
+  <h3>{new Date().toLocaleDateString()}</h3>
+  <small>{new Date().toLocaleTimeString()}</small>
+</div>
       </div>
     </div>
 
@@ -330,6 +344,20 @@ return (
             }%`
           }}
         ></div>
+        <div className="today-tasks">
+  <h3>📅 Today's Tasks</h3>
+
+  {tasks.length === 0 ? (
+    <p>No tasks available.</p>
+  ) : (
+    tasks.slice(0, 3).map((task) => (
+      <div key={task.id} className="today-task-card">
+        <strong>{task.task_name}</strong>
+        <p>{task.subject}</p>
+      </div>
+    ))
+  )}
+</div>
       </div>
 
       <p>
@@ -483,18 +511,21 @@ return (
     </>
   ) : (
     <>
-      <h3>{task.task_name}</h3>
+      <h3>📚 {task.task_name}</h3>
 
-      <p>Priority: {task.priority}</p>
+<div className="task-badges">
+  <span className="subject-badge">
+    📖 {task.subject}
+  </span>
 
-      <p>
-        Due Date:
-        {" "}
-        {new Date(
-          task.due_date
-        ).toLocaleDateString()}
-      </p>
+  <span className={`priority-badge ${task.priority.toLowerCase()}`}>
+    {task.priority}
+  </span>
+</div>
 
+<p className="due-date">
+  📅 {new Date(task.due_date).toLocaleDateString()}
+</p>
       <p>
         {task.completed === 1
           ? "✅ Completed"
@@ -552,6 +583,8 @@ return (
         {page === "calendar" && (
   <CalendarPage />
 )}
+{page === "pomodoro" && <Pomodoro />}
+{page === "goals" && <Goals />}
 
         {page === "register" && (
   <Register />
